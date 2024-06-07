@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car und Electric Car</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Car (brand, model, yearOfManufacture, seats) {
+            this.brand = brand;
+            this.model = model;
+            this.yearOfManufacture = yearOfManufacture;
+            this.seats = seats;
+            this.getDescription = function getDescription(brand, model, yearOfManufacture, seats) {
+                document.write(this.brand +" "+ this.model + ", " + this.yearOfManufacture + "<br /> Seats: " + this.seats + "<br />");
+            }
+        }
+
+        function ElectricCar (brand, model, yearOfManufacture, seats, batteryRange) {
+            Car.call(this, brand, model, yearOfManufacture, seats);
+            this.batteryRange = batteryRange;
+            this.getDescription = function() {
+                document.write(this.brand + " " + this.model + ", " + this.yearOfManufacture + "<br />Seats: " + this.seats + "<br />Battery Range: " + this.batteryRange + " km<br />");
+            }
+        }
+
+        var McLaren = new Car("McLaren", "700s", "2017", "2");
+
+        McLaren.getDescription();
+
+        var Tesla = new ElectricCar("Tesla", "Model S", "2022", "5", 690);
+
+        Tesla.getDescription();
+
+    </script>
+</body>
+</html>
